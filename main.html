@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>To-Do</title>
-</head>
-<body>
-    <input type="text" id="todoText" value="">
+  </head>
+  <body>
+    <input type="text" id="todoText" value="" />
     <button type="button" onclick="createLineItem()">Add to the list!</button>
-    <p id="item"></p>
-    <p class="list" id="list"></p>
-  <!--  <br>
+    <div class="listing" id="listing">
+      <p class="item" id="item"></p>
+      <p class="list" id="list"></p>
+    </div>
+
+    <!--  <br>
     <button type="button" onclick="bgChange('red')">""</button>
    -->
-    
 
-
-<script src="todo.js"></script>
-</body>
+    <script src="todo.js"></script>
+  </body>
 </html>
