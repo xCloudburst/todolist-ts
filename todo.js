@@ -1,34 +1,41 @@
-let button = document.querySelector(".button"),
-  list = "",
-  newDiv = "",
-  newContent = "",
-  newButton = "",
-  counter = 0,
-  i = -1;
+let todoButton = document.getElementById("todoButton");
 
-todoText.addEventListener("keyup", function (textBox) {
-  textBox.preventDefault();
-  if (textBox.keyCode === 13) {
-    createLineItem();
-  }
-});
+function addToDo() {
+  createLineItem();
+  console.log("line item added");
+}
 
 function createLineItem() {
   if (document.getElementById("todoText").value === "") {
   } else {
-    newDiv = document.createElement("div");
-    newButton = document.createElement("button");
-    newContent = document.createTextNode(
-      document.getElementById("todoText").value
+    let listContainer = document.createElement("div"),
+      clearButton = document.createElement("button"),
+      listItem = document.createElement("p");
+    clearButton.className = "clearButton";
+    clearButton.textContent = "I/O";
+    listItem.className = "incompleteItem";
+    document.getElementById("containerMain").appendChild(listContainer);
+    listContainer.appendChild(clearButton);
+    listContainer.appendChild(listItem);
+    listContent = document.createTextNode(
+      document.getElementById("todoText").value //gets value from text box
     );
-    newDiv.appendChild(newContent);
-    list = document.getElementById(item);
-    document.body.insertBefore(newDiv, list);
-    document.body.insertBefore(newButton, list);
-    document.getElementById("todoText").value = "";
+    listItem.appendChild(listContent); //appends value from text box into <p>
+    document.getElementById("todoText").value = ""; //clears text box
+    clearButton.addEventListener("click", function () {
+      listItem.classList.toggle("completeItem");
+      listItem.classList.toggle("incompleteItem");
+    }); //toggles class of item
   }
 }
 
-function bgChange(color) {
-  document.body.style.background = color;
-}
+todoText.addEventListener("keyup", function (textBox) {
+  textBox.preventDefault();
+  if (textBox.keyCode === 13) {
+    addToDo();
+  }
+});
+
+todoButton.addEventListener("click", function () {
+  addToDo();
+});
